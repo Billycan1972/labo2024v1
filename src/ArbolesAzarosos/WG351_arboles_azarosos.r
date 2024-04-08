@@ -27,7 +27,7 @@ PARAM$feature_fraction <- 0.5
 # voy a generar 500 arboles,
 #  a mas arboles mas tiempo de proceso y MEJOR MODELO,
 #  pero ganancias marginales
-PARAM$num_trees_max <- 100
+PARAM$num_trees_max <- 500
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------

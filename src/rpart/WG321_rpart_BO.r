@@ -211,7 +211,7 @@ dir.create("./exp/HT3210/", showWarnings = FALSE)
 setwd("./exp/HT3210/")
 
 
-archivo_log <- "HT321.txt"
+archivo_log <- "HT321WG.txt"
 archivo_log_mejor <- "HT321_mejor.txt"
 archivo_BO <- "HT321.RDATA"
 

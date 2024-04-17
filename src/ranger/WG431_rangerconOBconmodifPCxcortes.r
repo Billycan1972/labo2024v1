@@ -80,17 +80,17 @@ entrega <- as.data.table(list(
 # creo la carpeta donde va el experimento
 # HT  representa  Hiperparameter Tuning
 dir.create("./exp/", showWarnings = FALSE)
-dir.create("./exp/KA4310PC/", showWarnings = FALSE)
-archivo_salida <- "./exp/KA4310PC/KA4310PC_001.csv"
+dir.create("./exp/KA4311PC/", showWarnings = FALSE)
+archivo_salida <- "./exp/KA4311PC/KA4311PC_001.csv"
 # A PARTIR DE ACÁ LA MODIFICACIÓN DE PABLO EN EL SCRIPT
 # Genera la salida con distintos valores de envios
-cortes <- seq(9000, 11000, by = 100)
+cortes <- seq(6000, 14000, by = 500)
 for (envios in cortes) {
   entrega[, Predicted := 0L]
   entrega[1:envios, Predicted := 1L]
   
   fwrite(entrega[, list(numero_de_cliente, Predicted)],
-         file = paste0('exp/KA4310/KA4310', "_", envios, ".csv"),
+         file = paste0('exp/KA4311PC/KA4311PC', "_", envios, ".csv"),
          sep = ","
   )
 }

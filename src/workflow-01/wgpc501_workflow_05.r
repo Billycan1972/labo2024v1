@@ -14,7 +14,7 @@ require("ParamHelpers")
 envg <- env()
 
 envg$EXPENV <- list()
-envg$EXPENV$exp_dir <- "~/buckets/b1/exp/"
+envg$EXPENV$exp_dir <- "~/buckets/b1/exp5/"
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$wf_dir_local <- "~/flow/"
 envg$EXPENV$repo_dir <- "~/labo2024v1/"
@@ -91,7 +91,7 @@ DR_drifting_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
   if( -1 == (param_local <- exp_init( pmyexp, pinputexps, pserver ))$resultado ) return( 0 )# linea fija
 
 
-  param_local$meta$script <- "/src/workflow-01/p531_DR_corregir_drifting.r"
+  param_local$meta$script <- "/src/workflow-01/wgpc531_DR_corregir_drifting.r"
 
   # No me engraso las manos con Feature Engineering manual
   param_local$variables_intrames <- TRUE

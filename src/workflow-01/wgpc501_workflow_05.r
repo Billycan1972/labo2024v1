@@ -91,7 +91,7 @@ DR_drifting_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
   if( -1 == (param_local <- exp_init( pmyexp, pinputexps, pserver ))$resultado ) return( 0 )# linea fija
 
 
-  param_local$meta$script <- "/src/workflow-01/wgpc531_DR_corregir_drifting.r"
+  param_local$meta$script <- "/src/workflow-01/wgpcimport531_DR_corregir_drifting.r"
 
   # No me engraso las manos con Feature Engineering manual
   param_local$variables_intrames <- TRUE
@@ -276,7 +276,7 @@ corrida_m_202107 <- function( pnombrewf,pcorrida, pvirgen=FALSE )
   DT_incorporar_dataset_default( paste0("DT",pcorrida), "competencia_2024.csv.gz")
   CA_catastrophe_default( paste0("CA",pcorrida), paste0("DT",pcorrida))
   
-  DR_drifting_guantesblancos( paste0("DR",pcorrida), paste0("CA",pcorrida) )
+  DR_drifting_guantesblancos( paste0("DR",pcorrida),  "CA008")
   FE_historia_guantesblancos( paste0("FE",pcorrida), paste0("DR",pcorrida) )
 
   TS_strategy_guantesblancos_202107( paste0("TS",pcorrida), paste0("FE",pcorrida))
@@ -297,6 +297,6 @@ corrida_m_202107 <- function( pnombrewf,pcorrida, pvirgen=FALSE )
 
 # Hago primero esta corrida que me genera los experimentos
 # DT0001, CA0001, DR0001, FE0001, TS0001, HT0001 y ZZ0001
-corrida_m_202107( "gb08","008")
+corrida_m_202107( "gb09","009")
 
 

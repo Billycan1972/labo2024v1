@@ -317,18 +317,18 @@ corrida_guantesblancos_202109 <- function( pnombrewf, pvirgen=FALSE )
 {
   if( -1 == exp_wf_init( pnombrewf, pvirgen) ) return(0) # linea fija
 
-  DT_incorporar_dataset_default( "DT0001-e0001", "competencia_2024.csv.gz")
-  CA_catastrophe_default( "CA0001-e0001", "DT0001-e0001" )
+  DT_incorporar_dataset_default( "DT010", "competencia_2024.csv.gz")
+  CA_catastrophe_default( "CA010", "DT010" )
 
-  DR_drifting_guantesblancos( "DR0001-e0001", "CA0001-e0001" )
-  FE_historia_guantesblancos( "FE0001-e0001", "DR0001-e0001" )
+  DR_drifting_guantesblancos( "DR0010", "CA010" )
+  FE_historia_guantesblancos( "FE010", "DR010" )
 
-  TS_strategy_guantesblancos_202109( "TS0001-e0001", "FE0001-e0001" )
+  TS_strategy_guantesblancos_202109( "TS010", "FE010" )
 
-  HT_tuning_guantesblancos( "HT0001-e0001", "TS0001-e0001" )
+  HT_tuning_guantesblancos( "HT010", "TS010" )
 
   # El ZZ depente de HT y TS
-  ZZ_final_guantesblancos( "ZZ0001-e0001", c("HT0001-e0001","TS0001-e0001") )
+  ZZ_final_guantesblancos( "ZZ010", c("HT010","TS010") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -345,12 +345,12 @@ corrida_guantesblancos_202107 <- function( pnombrewf, pvirgen=FALSE )
   if( -1 == exp_wf_init( pnombrewf, pvirgen) ) return(0) # linea fija
 
   # Ya tengo corrido FE0001 y parto de alli
-  TS_strategy_guantesblancos_202107( "TS0002-e0001", "FE0001-e0001" )
+  TS_strategy_guantesblancos_202107( "TS01011", "FE010" )
 
-  HT_tuning_guantesblancos( "HT0002-e0001", "TS0002-e0001" )
+  HT_tuning_guantesblancos( "HT0101", "TS0101" )
 
   # El ZZ depente de HT y TS
-  ZZ_final_guantesblancos( "ZZ0002-e0001", c("HT0002-e0001", "TS0002-e0001") )
+  ZZ_final_guantesblancos( "ZZ0101", c("HT0101", "TS0101") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -362,12 +362,12 @@ corrida_guantesblancos_202107 <- function( pnombrewf, pvirgen=FALSE )
 
 # Hago primero esta corrida que me genera los experimentos
 # DT0001, CA0001, DR0001, FE0001, TS0001, HT0001 y ZZ0001
-corrida_guantesblancos_202109( "gb01-e0001" )
+corrida_guantesblancos_202109( "gb010" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_guantesblancos_202107( "gb02-e0001" )
+corrida_guantesblancos_202107( "gb0101" )
 
  

@@ -309,52 +309,28 @@ ZZ_final_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
 #------------------------------------------------------------------------------
 # A partir de ahora comienza la seccion de Workflows Completos
 #------------------------------------------------------------------------------
-# Este es el  Workflow de Guantes Blancos
-# Que predice 202109
-# y ya genera archivos para Kaggle
 
-corrida_guantesblancos_202109 <- function( pnombrewf, pvirgen=FALSE )
+corrida_m_202107 <- function( pnombrewf,pcorrida, pvirgen=FALSE )
 {
   if( -1 == exp_wf_init( pnombrewf, pvirgen) ) return(0) # linea fija
-
-  DT_incorporar_dataset_default( "DT010", "competencia_2024.csv.gz")
-  CA_catastrophe_default( "CA010", "DT010" )
-
-  DR_drifting_guantesblancos( "DR010", "CA010" )
-  FE_historia_guantesblancos( "FE010", "DR010" )
-
-  TS_strategy_guantesblancos_202109( "TS010", "FE010" )
-
-  HT_tuning_guantesblancos( "HT010", "TS010" )
-
+  
+  #DT_incorporar_dataset_default( paste0("DT",pcorrida), "competencia_2024.csv.gz")
+  #CA_catastrophe_default( paste0("CA",pcorrida), paste0("DT",pcorrida))
+  
+  DR_drifting_guantesblancos( paste0("DR",pcorrida),  "CA009")
+  FE_historia_guantesblancos( paste0("FE",pcorrida), paste0("DR",pcorrida) )
+  
+  TS_strategy_guantesblancos_202107( paste0("TS",pcorrida), paste0("FE",pcorrida))
+  
+  HT_tuning_guantesblancos( paste0("HT",pcorrida), paste0("TS",pcorrida) )
+  
   # El ZZ depente de HT y TS
-  ZZ_final_guantesblancos( "ZZ010", c("HT010","TS010") )
-
-
+  ZZ_final_guantesblancos( paste0("ZZ",pcorrida), c(paste0("HT",pcorrida),paste0("TS",pcorrida)) )
+  
+  
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
 }
 #------------------------------------------------------------------------------
-# Este es el  Workflow de Guantes Blancos
-# Que predice 202107
-# genera completas curvas de ganancia
-#   NO genera archivos para Kaggle
-# por favor notal como este script parte de FE0001
-
-corrida_guantesblancos_202107 <- function( pnombrewf, pvirgen=FALSE )
-{
-  if( -1 == exp_wf_init( pnombrewf, pvirgen) ) return(0) # linea fija
-
-  # Ya tengo corrido FE0001 y parto de alli
-  TS_strategy_guantesblancos_202107( "TS0101", "FE010" )
-
-  HT_tuning_guantesblancos( "HT0101", "TS0101" )
-
-  # El ZZ depente de HT y TS
-  ZZ_final_guantesblancos( "ZZ0101", c("HT0101", "TS0101") )
-
-
-  exp_wf_end( pnombrewf, pvirgen ) # linea fija
-}
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
@@ -362,12 +338,5 @@ corrida_guantesblancos_202107 <- function( pnombrewf, pvirgen=FALSE )
 
 # Hago primero esta corrida que me genera los experimentos
 # DT0001, CA0001, DR0001, FE0001, TS0001, HT0001 y ZZ0001
-corrida_guantesblancos_202109( "gb010" )
-
-
-# Luego partiendo de  FE0001
-# genero TS0002, HT0002 y ZZ0002
-
-corrida_guantesblancos_202107( "gb0101" )
-
+corrida_m_202107( "gb10","010")
  

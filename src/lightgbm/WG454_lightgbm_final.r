@@ -11,7 +11,7 @@ require("lightgbm")
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
-PARAM$experimento <- "KA4540TomasFernandez"
+PARAM$experimento <- "KA4540TomasFernandez14Sem"
 
 PARAM$input$dataset <- "./datasets/dataset_pequeno.csv"
 PARAM$input$training <- c(202107) # meses donde se entrena el modelo
@@ -33,7 +33,7 @@ PARAM$finalmodel$max_bin <- 31
 setwd("~/buckets/b1")
 
 # cargo MI semilla, que esta en MI bucket
-tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
+tabla_semillas <- fread( "./datasets//mis_semillas14.txt" )
 ksemilla_azar <- tabla_semillas[ 1, semilla ]  # 1 es mi primer semilla
 
 

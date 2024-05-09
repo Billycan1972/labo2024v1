@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # limpio la memoria
 rm(list = ls(all.names = TRUE)) # remove all objects
 gc(full = TRUE) # garbage collection
@@ -296,3 +297,5 @@ corrida_m_202107 <- function( pnombrewf,pcorrida, pvirgen=FALSE )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 corrida_m_202107( "base202","0202" )
+=======
+>>>>>>> d2af017efde078aa4dc75ebec73edd3552202b4e

@@ -12,7 +12,11 @@ require("ParamHelpers")
 envg <- env()
 
 envg$EXPENV <- list()
+<<<<<<< HEAD
 envg$EXPENV$exp_dir <- "~/buckets/b1/exp/"
+=======
+envg$EXPENV$exp_dir <- "~/buckets/b1/exp7/"
+>>>>>>> origin/main
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$wf_dir_local <- "~/flow/"
 envg$EXPENV$repo_dir <- "~/labo2024v1/"

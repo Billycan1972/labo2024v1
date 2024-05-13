@@ -109,7 +109,7 @@ DR_drifting_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
   # No me engraso las manos con Feature Engineering manual
   param_local$variables_intrames <- TRUE
   param_local$variables_catedra <- TRUE
-  param_local$variables_iter1 <- TRUE
+  param_local$variables_iter1 <- FALSE
   param_local$variables_iter2 <- TRUE
   # valores posibles
   #  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar"
@@ -131,8 +131,8 @@ FE_historia_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
   param_local$meta$script <- "/src/workflow-01/z541_FE_historia.r"
 
   param_local$lag1 <- TRUE
-  param_local$lag2 <- TRUE # no me engraso con los lags de orden 2
-  param_local$lag3 <- TRUE # no me engraso con los lags de orden 3
+  param_local$lag2 <- FALSE # no me engraso con los lags de orden 2
+  param_local$lag3 <- FALSE # no me engraso con los lags de orden 3
 
   # no me engraso las manos con las tendencias
   param_local$Tendencias1$run <- TRUE  # FALSE, no corre nada de lo que sigue
@@ -165,7 +165,7 @@ FE_historia_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
 
   # no me engraso las manos con los Canaritos Asesinos
   # varia de 0.0 a 2.0, si es 0.0 NO se activan
-  param_local$CanaritosAsesinos$ratio <- 0.0
+  param_local$CanaritosAsesinos$ratio <- 0.5
   # desvios estandar de la media, para el cutoff
   param_local$CanaritosAsesinos$desvios <- 4.0
 
@@ -193,7 +193,7 @@ TS_strategy_guantesblancos_202109 <- function( pmyexp, pinputexps, pserver="loca
 
   # Atencion  0.1  de  undersampling de la clase mayoritaria,  los CONTINUA
   # 1.0 significa NO undersampling ,  0.1  es quedarse con el 10% de los CONTINUA
-  param_local$train$undersampling <- 0.2
+  param_local$train$undersampling <- 0.5
 
   return( exp_correr_script( param_local ) ) # linea fija
 }

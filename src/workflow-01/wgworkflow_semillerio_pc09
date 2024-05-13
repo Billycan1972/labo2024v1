@@ -13,7 +13,7 @@ require("ParamHelpers")
 envg <- env()
 
 envg$EXPENV <- list()
-envg$EXPENV$exp_dir <- "~/buckets/b1/exp/"
+envg$EXPENV$exp_dir <- "~/buckets/b1/exp20/"
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$wf_dir_local <- "~/flow/"
 envg$EXPENV$repo_dir <- "~/labo2024v1/"
@@ -130,4 +130,4 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf,pcorrida, pvirgen=FALS
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "final09","1009" )
+corrida_baseline_semillerio_202109( "finalsemilla01","0001" )
